@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>ShotGather — 利用規約</title>
+  <meta name="description" content="ShotGather（macOS 用写真取り込みアプリ）の利用規約です。準拠法は日本法、管轄裁判所は東京地方裁判所とします。">
+  <meta name="author" content="satoshoh">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShotGather 利用規約">
+  <meta property="og:description" content="ShotGather（macOS 用写真取り込みアプリ）の利用規約。準拠法：日本法。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f7;
+      --bg-code: #f2f2f7;
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --border: #d2d2d7;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+      --radius: 10px;
+      --note-bg: #fff8e1;
+      --note-border: #f0c040;
+      --note-text: #5c4a00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --bg-secondary: #1c1c1e;
+        --bg-code: #2c2c2e;
+        --text: #f5f5f7;
+        --text-secondary: #98989d;
+        --accent: #2997ff;
+        --accent-hover: #47a8ff;
+        --border: #3a3a3c;
+        --shadow: 0 2px 16px rgba(0,0,0,0.5);
+        --note-bg: #2c2a00;
+        --note-border: #f0c040;
+        --note-text: #f0e6a0;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .back-link {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      font-size: 13px;
+    }
+    .back-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back-link a:hover { text-decoration: underline; }
+    .site-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .site-header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Layout */
+    .page-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 32px 0 40px;
+    }
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .toc li { margin-bottom: 4px; }
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section {
+      margin-bottom: 52px;
+    }
+    section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scroll-margin-top: 20px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+    li:last-child { margin-bottom: 0; }
+
+    /* Note callout */
+    .note {
+      border-left: 4px solid var(--note-border);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 14.5px;
+      background: var(--note-bg);
+      color: var(--note-text);
+    }
+    .note strong { display: inline-block; margin-bottom: 2px; }
+
+    /* Preamble / intro block */
+    .preamble {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 28px 0 40px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .preamble p { margin-bottom: 10px; }
+    .preamble p:last-child { margin-bottom: 0; }
+
+    /* TODO marker */
+    .todo {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #664d03;
+    }
+    @media (prefers-color-scheme: dark) {
+      .todo {
+        background: #3d2f00;
+        border-color: #ffc107;
+        color: #ffdf7e;
+      }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 0;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer p + p { margin-top: 8px; }
+
+    @media (max-width: 600px) {
+      .site-header h1 { font-size: 22px; }
+      section h2 { font-size: 19px; }
+      .back-link { position: static; margin-bottom: 12px; display: block; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="back-link">
+    <a href="index.html">&laquo; ユーザーガイドに戻る</a>
+  </div>
+  <h1>ShotGather 利用規約</h1>
+  <p class="subtitle">制定日：2026年4月27日</p>
+</header>
+
+<main class="page-wrapper">
+
+  <!-- 前文 -->
+  <div class="preamble">
+    <p>
+      本利用規約（以下「本規約」といいます）は、shotgather.com（以下「当方」といいます）が提供する macOS アプリケーション「ShotGather」（以下「本アプリ」といいます）の利用に関する条件を定めるものです。
+    </p>
+    <p>
+      本アプリをインストール・起動・使用することにより、ユーザーは本規約に同意したものとみなします。本規約に同意いただけない場合は、本アプリの使用を中止し、アンインストールしてください。
+    </p>
+  </div>
+
+  <!-- 目次 -->
+  <nav class="toc" aria-label="目次">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#article-1">適用</a></li>
+      <li><a href="#article-2">定義</a></li>
+      <li><a href="#article-3">ライセンスの付与</a></li>
+      <li><a href="#article-4">禁止事項</a></li>
+      <li><a href="#article-5">料金</a></li>
+      <li><a href="#article-6">プレビュー版に関する特則</a></li>
+      <li><a href="#article-7">知的財産権</a></li>
+      <li><a href="#article-8">個人情報の取扱い</a></li>
+      <li><a href="#article-9">第三者サービス</a></li>
+      <li><a href="#article-10">サービスの変更・停止・終了</a></li>
+      <li><a href="#article-11">保証の否認</a></li>
+      <li><a href="#article-12">免責・損害賠償の制限</a></li>
+      <li><a href="#article-13">規約の変更</a></li>
+      <li><a href="#article-14">通知</a></li>
+      <li><a href="#article-15">権利義務の譲渡禁止</a></li>
+      <li><a href="#article-16">分離可能性</a></li>
+      <li><a href="#article-17">準拠法</a></li>
+      <li><a href="#article-18">合意管轄</a></li>
+      <li><a href="#article-19">お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <!-- 第1条 -->
+  <section id="article-1">
+    <h2>第1条（適用）</h2>
+    <ol>
+      <li>本規約は、本アプリの利用に関して当方とユーザーとの間に生じる一切の関係に適用されます。</li>
+      <li>当方が本アプリまたは関連サイト上に掲示するガイドライン・注意事項・その他の規程等は、本規約の一部を構成します。本規約とこれらが矛盾する場合は、当方が別途定める規程が優先されます。</li>
+      <li>Apple Inc. の Mac App Store を通じて本アプリを取得した場合、Apple Media Services 利用規約（App Store 利用規約）および Apple の「Licensed Application End User License Agreement」（以下「Apple 標準 LAEULA」といいます）が別途ユーザーと Apple との間に適用されます。本規約と Apple 標準 LAEULA の規定が矛盾する場合は、Apple 標準 LAEULA が優先して適用されます。</li>
+    </ol>
+  </section>
+
+  <!-- 第2条 -->
+  <section id="article-2">
+    <h2>第2条（定義）</h2>
+    <p>本規約において使用する用語の意味は以下のとおりです。</p>
+    <ul>
+      <li><strong>「本アプリ」</strong>：当方が提供する macOS アプリケーション「ShotGather」（バージョンの別を問わない）およびその更新版・後継版をいいます。</li>
+      <li><strong>「プレビュー版」</strong>：2026年12月31日を利用期限として無償配布される試用バージョンをいいます。</li>
+      <li><strong>「正式版」</strong>：プレビュー版以外の有償リリースバージョンをいいます。</li>
+      <li><strong>「ユーザー」</strong>：本規約に同意のうえ本アプリを利用する個人または法人をいいます。</li>
+      <li><strong>「メディア」</strong>：SD カード、CFexpress カード、XQD カード、USB 接続カメラその他の記録メディアをいいます。</li>
+      <li><strong>「取り込み先」</strong>：ユーザーが指定する写真・動画ファイルの保存先フォルダをいいます。</li>
+      <li><strong>「ユーザーデータ」</strong>：ユーザーが本アプリを通じて処理する写真・動画ファイルおよびそのメタデータ（EXIF 情報等）をいいます。</li>
+    </ul>
+  </section>
+
+  <!-- 第3条 -->
+  <section id="article-3">
+    <h2>第3条（ライセンスの付与）</h2>
+    <ol>
+      <li>当方は、ユーザーに対し、本規約の条件に従い、本アプリを個人または業務目的で使用するための非独占的・譲渡不可・再許諾不可・取消可能な使用許諾を付与します。</li>
+      <li>Mac App Store 経由で取得した場合の利用可能端末数は、Apple の規定するファミリー共有ルールおよび Mac App Store 利用規約に従います。</li>
+      <li>本条に定める使用許諾は、本規約に別段の定めがある場合を除き、本アプリのバイナリを実行する権利に限られ、ソースコードへのアクセス権・改変権・再配布権を含みません。</li>
+    </ol>
+  </section>
+
+  <!-- 第4条 -->
+  <section id="article-4">
+    <h2>第4条（禁止事項）</h2>
+    <p>ユーザーは、本アプリの利用にあたり以下の行為を行ってはなりません。</p>
+    <ol>
+      <li>本アプリのリバースエンジニアリング、逆コンパイル、逆アセンブル、またはソースコードの復元を試みる行為（適用される法律により明示的に認められた範囲を除く）</li>
+      <li>本アプリまたはその一部を複製、改変、翻案、翻訳、または二次著作物を作成する行為</li>
+      <li>当方の書面による事前の承諾なく、本アプリを第三者に販売、サブライセンス、貸与、譲渡、または配布する行為</li>
+      <li>本アプリに含まれる著作権表示、商標表示、その他の権利帰属表示を削除または改変する行為</li>
+      <li>本アプリを不正に改変する行為、または不正なソフトウェアと組み合わせて使用する行為</li>
+      <li>他人の著作権その他の権利を侵害する写真・動画ファイルを本アプリで取り込む行為その他、本アプリを通じて第三者の権利を侵害する行為</li>
+      <li>本アプリを通じて、違法、有害、名誉毀損、わいせつ、プライバシー侵害その他公序良俗に反するコンテンツを処理または配布する行為</li>
+      <li>本規約、適用される法律または規制に違反する行為</li>
+    </ol>
+  </section>
+
+  <!-- 第5条 -->
+  <section id="article-5">
+    <h2>第5条（料金）</h2>
+    <ol>
+      <li>プレビュー版は無償で提供されます。</li>
+      <li>正式版の利用料金・支払い方法は、Mac App Store に表示される価格および Apple の決済ポリシーに従います。料金は予告なく変更される場合があります。</li>
+      <li>一度支払われた料金は、Apple の返金ポリシーが適用される場合を除き、原則として返金されません。</li>
+    </ol>
+  </section>
+
+  <!-- 第6条 -->
+  <section id="article-6">
+    <h2>第6条（プレビュー版に関する特則）</h2>
+
+    <div class="note">
+      <strong>⚠️ プレビュー版の利用期限について</strong><br>
+      現在配布中のプレビュー版は <strong>2026年12月31日</strong> を利用期限とします。期限経過後は本アプリが起動しなくなります。
+    </div>
+
+    <ol>
+      <li>プレビュー版は評価・試用を目的として無償で提供するものであり、機能・品質・安定性について正式版と同等の保証は行いません。</li>
+      <li>プレビュー版の利用期限は <strong>2026年12月31日</strong> とします。同日を過ぎると本アプリは起動しなくなります。正式版がリリースされた場合は最新版をご利用ください。</li>
+      <li>プレビュー版は予告なく機能の変更、配布の停止、または終了を行う場合があります。</li>
+      <li>プレビュー版の使用によりデータの消失、ファイルへのアクセス不能その他の損害が生じる可能性があります。本アプリで処理するファイルは事前に別途バックアップを取ることを強く推奨します。</li>
+      <li>プレビュー版に関して当方が負う責任は、第11条および第12条の定めに加え、本条に定める特則によっても制限されます。</li>
+    </ol>
+  </section>
+
+  <!-- 第7条 -->
+  <section id="article-7">
+    <h2>第7条（知的財産権）</h2>
+    <ol>
+      <li>本アプリ、本ウェブサイト、およびこれらに関連するすべてのコンテンツ（テキスト、画像、ロゴ、デザイン、ソースコード等）に関する著作権・商標権・その他の知的財産権は、当方または正当な権利を有する第三者に帰属します。</li>
+      <li>本規約は、ユーザーに対し第3条に定める使用許諾以外のいかなる知的財産権も付与するものではありません。</li>
+      <li>ユーザーが本アプリを通じて取り込み・処理した写真・動画その他のユーザーデータに関する権利は、ユーザーまたは当該データの原権利者に帰属します。当方はユーザーデータに対する権利を取得せず、ユーザーデータを当方サーバーに収集・保存しません。</li>
+    </ol>
+  </section>
+
+  <!-- 第8条 -->
+  <section id="article-8">
+    <h2>第8条（個人情報の取扱い）</h2>
+    <ol>
+      <li>本アプリは Mac 上でローカルに動作します。本アプリは、ユーザーデータ（写真・動画ファイル、EXIF メタデータ等）、取り込み先フォルダのパス情報、設定情報等を当方のサーバーその他の外部サーバーに送信・収集しません。</li>
+      <li>ユーザーが選択した取り込み先フォルダのパス情報は、macOS のセキュリティ機構（Security-Scoped Bookmark）として、ユーザーの Mac 端末内にのみ保持されます。</li>
+      <li>macOS の通知機能（UserNotifications）、アプリクラッシュレポート等は Apple が提供する macOS 標準の機構に依存するものであり、Apple のプライバシーポリシーが適用されます。</li>
+      <li>当方が将来本アプリの機能追加等により個人情報を収集する場合は、別途プライバシーポリシーを制定・公開し、適用される個人情報保護法令に従って適切に取り扱います。</li>
+    </ol>
+  </section>
+
+  <!-- 第9条 -->
+  <section id="article-9">
+    <h2>第9条（第三者サービス）</h2>
+    <ol>
+      <li>本アプリは macOS 上で動作するため、Apple Inc. が提供する macOS およびそのフレームワーク・サービス（App Store、UserNotifications、ImageIO 等）に依存します。これらの利用については Apple のサービス利用規約・プライバシーポリシーが別途適用されます。</li>
+      <li>Apple は本アプリの提供者でなく、本アプリのメンテナンス・サポートについて一切の義務を負いません。本アプリに関するお問い合わせ・サポートは当方（第19条）にご連絡ください。</li>
+      <li>本アプリがユーザーの指示に従って「取り込み完了後に外部アプリで開く」機能を実行する場合、当該外部アプリの動作については当方は責任を負いません。</li>
+    </ol>
+  </section>
+
+  <!-- 第10条 -->
+  <section id="article-10">
+    <h2>第10条（サービスの変更・停止・終了）</h2>
+    <ol>
+      <li>当方は、ユーザーへの事前通知なく、本アプリの機能・仕様・提供内容を変更または追加することがあります。</li>
+      <li>当方は、以下の場合に本アプリの提供を一時的に停止または終了することがあります。
+        <ul>
+          <li>本アプリのメンテナンス・更新作業を実施するとき</li>
+          <li>天災、停電、その他の不可抗力により提供が困難になったとき</li>
+          <li>macOS または Mac App Store の仕様変更により継続提供が困難になったとき</li>
+          <li>その他、当方が合理的理由により必要と判断したとき</li>
+        </ul>
+      </li>
+      <li>本アプリの提供を終了する場合、当方は可能な範囲で事前に本ウェブサイト等でその旨を告知します。</li>
+      <li>本条に基づく変更・停止・終了によりユーザーに生じた損害について、当方は第12条に定める範囲を超えた責任を負いません。</li>
+    </ol>
+  </section>
+
+  <!-- 第11条 -->
+  <section id="article-11">
+    <h2>第11条（保証の否認）</h2>
+    <ol>
+      <li>本アプリは「現状有姿（AS IS）」で提供されます。当方は、本アプリについて以下の事項を含め、明示または黙示を問わず、いかなる保証も行いません。
+        <ul>
+          <li>商品性、特定目的への適合性、非侵害性</li>
+          <li>本アプリが中断なく、エラーなく、またはセキュリティ上安全に動作すること</li>
+          <li>本アプリの使用によりデータの消失・破損が生じないこと</li>
+          <li>本アプリがユーザーの期待する結果をもたらすこと</li>
+        </ul>
+      </li>
+      <li>前項の定めは、<strong>消費者契約法その他の強行法規によりその全部または一部が無効とされる場合には、その限度において適用されません</strong>。</li>
+    </ol>
+  </section>
+
+  <!-- 第12条 -->
+  <section id="article-12">
+    <h2>第12条（免責・損害賠償の制限）</h2>
+    <ol>
+      <li>当方は、本アプリの使用またはその不能に起因して生じた、データの消失・破損、逸失利益、間接損害、特別損害、付随的損害、結果的損害、懲罰的損害（たとえ当方がそのような損害の可能性を事前に知らされていたとしても）について、<strong>当方の故意または重大な過失による場合を除き</strong>、責任を負いません。</li>
+      <li>前項にかかわらず当方がユーザーに対して損害賠償責任を負う場合、その賠償額は、当該損害が発生した日から遡る 12 か月間においてユーザーが本アプリの対価として当方（Mac App Store を含む）に支払った総額を上限とします。</li>
+      <li>本条の定めは、<strong>消費者契約法その他の強行法規によりその全部または一部が無効とされる場合には、その限度において適用されません</strong>。</li>
+    </ol>
+  </section>
+
+  <!-- 第13条 -->
+  <section id="article-13">
+    <h2>第13条（規約の変更）</h2>
+    <ol>
+      <li>当方は、ユーザーの一般の利益に適合する場合、または本規約の変更が合理的な必要性に基づく場合、民法第548条の4の規定に準じて本規約を変更することができます。</li>
+      <li>本規約を変更する場合、当方は変更内容および変更効力発生日を本ウェブサイトまたは本アプリ内に掲載します。重要な変更については、効力発生日の相当期間前に告知するよう努めます。</li>
+      <li>効力発生日以降に本アプリを使用したユーザーは、変更後の規約に同意したものとみなします。</li>
+    </ol>
+  </section>
+
+  <!-- 第14条 -->
+  <section id="article-14">
+    <h2>第14条（通知）</h2>
+    <p>
+      本規約に基づく当方からユーザーへの通知は、本ウェブサイトへの掲載、本アプリ内への表示、またはその他当方が適切と判断する方法により行います。本ウェブサイトへの掲載による通知は、掲載時点でユーザーへの通知が完了したものとします。
+    </p>
+  </section>
+
+  <!-- 第15条 -->
+  <section id="article-15">
+    <h2>第15条（権利義務の譲渡禁止）</h2>
+    <p>
+      ユーザーは、当方の書面による事前の承諾なく、本規約上の地位および本規約に基づく権利もしくは義務の全部または一部を第三者に譲渡し、担保に提供し、またはその他の処分を行うことはできません。
+    </p>
+  </section>
+
+  <!-- 第16条 -->
+  <section id="article-16">
+    <h2>第16条（分離可能性）</h2>
+    <p>
+      本規約のいずれかの条項が、適用ある法律または規則のもとで無効、違法または執行不能と判断された場合であっても、その余の条項は引き続き完全に効力を有します。無効等とされた条項は、当該条項の趣旨に最も近い有効な条項に読み替えられるものとします。
+    </p>
+  </section>
+
+  <!-- 第17条 -->
+  <section id="article-17">
+    <h2>第17条（準拠法）</h2>
+    <p>
+      本規約の成立、効力、解釈および履行については、日本法に準拠するものとします。
+    </p>
+  </section>
+
+  <!-- 第18条 -->
+  <section id="article-18">
+    <h2>第18条（合意管轄）</h2>
+    <p>
+      本規約または本アプリの利用に関連して当方とユーザーとの間に生じた一切の紛争については、<strong>東京地方裁判所</strong>を第一審の専属的合意管轄裁判所とします。
+    </p>
+  </section>
+
+  <!-- 第19条 -->
+  <section id="article-19">
+    <h2>第19条（お問い合わせ）</h2>
+    <p>本規約または本アプリに関するご意見・ご質問・苦情については、以下の窓口までお問い合わせください。</p>
+    <!-- TODO: 連絡先（メールアドレスまたは問い合わせフォーム URL）を後日追記 -->
+    <p><span class="todo">TODO</span> &nbsp;お問い合わせ先は今後本ページに掲載いたします。</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 shotgather.com. All rights reserved.</p>
+    <p><a href="index.html">&laquo; ユーザーガイドに戻る</a></p>
+  </footer>
+
+</main>
+</body>
+</html>

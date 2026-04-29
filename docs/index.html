@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>ShotGather — Photo Import App for Mac User Guide</title>
+  <meta name="description" content="ShotGather is a macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy.">
+  <meta name="keywords" content="ShotGather, photo import, Mac, macOS, SD card, CFexpress, XQD, RAW, JPEG, HEIC, video, menu bar, EXIF, auto-sort, backup, SHA-256, photo management, DXO PhotoLab, Capture One">
+  <meta name="author" content="satoshoh">
+  <meta name="robots" content="index, follow">
+  <!-- TODO: Update to actual URL when published -->
+  <!-- <link rel="canonical" href="https://your-domain.com/help/en/"> -->
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="./index.html">
+  <link rel="alternate" hreflang="ja" href="../ja/index.html">
+  <link rel="alternate" hreflang="x-default" href="./index.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShotGather User Guide">
+  <meta property="og:description" content="Safely import photos and videos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, EXIF date-based auto-sorting, SHA-256 verification, simultaneous backup copy.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="img/menubar_en.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ShotGather User Guide">
+  <meta name="twitter:description" content="Safely import photos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, date-based auto-sorting, SHA-256 verification.">
+  <meta name="twitter:image" content="img/menubar_en.png">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f7;
+      --bg-code: #f2f2f7;
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --border: #d2d2d7;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+      --radius: 10px;
+      --note-bg: #fff8e1;
+      --note-border: #f0c040;
+      --note-text: #5c4a00;
+      --tip-bg: #e8f5e9;
+      --tip-border: #66bb6a;
+      --tip-text: #1b5e20;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --bg-secondary: #1c1c1e;
+        --bg-code: #2c2c2e;
+        --text: #f5f5f7;
+        --text-secondary: #98989d;
+        --accent: #2997ff;
+        --accent-hover: #47a8ff;
+        --border: #3a3a3c;
+        --shadow: 0 2px 16px rgba(0,0,0,0.5);
+        --note-bg: #2c2a00;
+        --note-border: #f0c040;
+        --note-text: #f0e6a0;
+        --tip-bg: #0d2b0d;
+        --tip-border: #66bb6a;
+        --tip-text: #a5d6a7;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .site-header .app-icon {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .site-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .site-header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .site-header .tagline {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-top: 6px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lang-switch a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .lang-switch a:hover { text-decoration: underline; }
+    .lang-switch a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 700;
+      pointer-events: none;
+      text-decoration: none;
+    }
+    .lang-switch span { color: var(--text-secondary); }
+
+    /* Layout */
+    .page-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 32px 0 40px;
+    }
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .toc li {
+      margin-bottom: 4px;
+    }
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      scroll-margin-top: 20px;
+    }
+    section h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 28px 0 10px;
+      scroll-margin-top: 20px;
+    }
+    section h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin: 18px 0 6px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 4px; }
+    li:last-child { margin-bottom: 0; }
+
+    /* Code / tokens */
+    code {
+      font-family: "SF Mono", "Menlo", "Monaco", monospace;
+      font-size: 13px;
+      background: var(--bg-code);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+
+    /* Screenshots */
+    figure {
+      margin: 20px 0 24px;
+    }
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    figcaption {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* Note / Tip callouts */
+    .note, .tip {
+      border-left: 4px solid;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 14.5px;
+    }
+    .note {
+      background: var(--note-bg);
+      border-color: var(--note-border);
+      color: var(--note-text);
+    }
+    .tip {
+      background: var(--tip-bg);
+      border-color: var(--tip-border);
+      color: var(--tip-text);
+    }
+    .note strong, .tip strong { display: inline-block; margin-bottom: 2px; }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .feature-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .feature-card .icon { font-size: 24px; margin-bottom: 8px; }
+    .feature-card h4 { color: var(--text); font-size: 14px; margin: 0 0 4px; }
+    .feature-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+
+    /* Workflow steps */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .steps li .step-content { flex: 1; }
+    .steps li .step-title { font-weight: 600; margin-bottom: 2px; }
+    .steps li .step-desc { font-size: 14px; color: var(--text-secondary); margin: 0; }
+
+    /* Token table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 12px 0 20px;
+    }
+    th {
+      text-align: left;
+      background: var(--bg-secondary);
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+    td {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: var(--bg-secondary); }
+
+    /* FAQ */
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      font-weight: 600;
+      padding: 14px 16px;
+      background: var(--bg-secondary);
+      font-size: 15px;
+    }
+    .faq-answer {
+      padding: 14px 16px;
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 0;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .site-header h1 { font-size: 22px; }
+      section h2 { font-size: 21px; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .lang-switch {
+        position: static;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ShotGather",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "macOS 15+",
+    "inLanguage": "en",
+    "description": "A macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy.",
+    "softwareVersion": "1.0 Preview",
+    "author": {
+      "@type": "Person",
+      "name": "satoshoh"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Preview version (available until December 31, 2026)",
+      "validThrough": "2026-12-31"
+    }
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will the original files be deleted?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, they will not be deleted. ShotGather only copies files. It never writes to the memory card and operates in read-only mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I see a message saying \"No access permission to the destination folder\"",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ShotGather runs in the macOS sandbox environment and maintains folder access permissions as Security-Scoped Bookmarks. Permissions may become invalid if the folder is moved or deleted. Please select the folder again using the \"Browse…\" button in the import dialog."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "The import dialog doesn't open when I insert a memory card",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Please check that \"Auto-detect memory cards\" is ON in the General tab of Settings, that the memory card has a DCIM folder, and that ShotGather is running (the SD card icon should be visible in the menu bar). To open manually, select \"Import Photos…\" from the menu bar icon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A verification error was displayed",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If the size or checksum of a copied file does not match the original, ShotGather will automatically retry. If it still fails after retrying, it will be displayed as a \"Verification Error\" on the completion screen. Try using a different card reader or checking the available space on the drive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long can I use the preview version?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The current preview version is available until December 31, 2026. After the expiry date, a message saying \"The usage period has ended\" will appear at launch and the app will quit. Please use the latest version once the official release is available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which RAW formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All RAW formats supported by the macOS ImageIO framework are supported, including major manufacturers such as Canon (CR3, CR2), Nikon (NEF, NRW), Sony (ARW), FUJIFILM (RAF), Olympus / OM System (ORF), Panasonic (RW2), and Leica."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="lang-switch" aria-label="Language">
+    <a href="../ja/index.html" hreflang="ja">日本語</a>
+    <span aria-hidden="true">/</span>
+    <a href="./index.html" hreflang="en" aria-current="page">English</a>
+  </nav>
+  <h1>ShotGather User Guide</h1>
+  <p class="subtitle">Version 1.0 Preview &nbsp;|&nbsp; Requires macOS 15 or later</p>
+  <p class="tagline">Batch import photos from SD cards, CFexpress, and XQD cards to your Mac — automatic date sorting, RAW support, simultaneous backup copy</p>
+</header>
+
+<main class="page-wrapper">
+
+  <!-- Table of Contents -->
+  <nav class="toc" aria-label="Table of Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#about">What is ShotGather?</a></li>
+      <li><a href="#getting-started">Getting Started</a></li>
+      <li><a href="#basic-flow">Basic Import Flow</a></li>
+      <li><a href="#import-dialog">Import Dialog Details</a></li>
+      <li><a href="#progress-and-complete">Progress and Completion</a></li>
+      <li><a href="#settings">Settings (Preferences)</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. What is ShotGather? -->
+  <section id="about">
+    <h2>1. What is ShotGather?</h2>
+
+    <p>
+      <strong>ShotGather</strong> is a macOS menu bar app that safely and quickly batch-imports photos and videos from SD cards, CFexpress, XQD cards, and USB-connected cameras to your Mac. Built on the concept of "Shot (capture) + Gather (collect)", it is designed to organize your photos quickly and reliably after a shoot. <strong>Original files are never deleted — ShotGather only copies.</strong>
+    </p>
+    <p>
+      It is designed to work alongside external RAW processing software such as DXO PhotoLab and Capture One. Features include automatic folder sorting by EXIF capture date, copy verification via SHA-256 checksum, and simultaneous backup copy.
+    </p>
+
+    <h3>Key Features</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">🔍</div>
+        <h4>Auto-detect Memory Cards</h4>
+        <p>Automatically detects SD, CFexpress, XQD cards and USB camera connections when inserted.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📁</div>
+        <h4>Date-based Auto-sorting</h4>
+        <p>Reads EXIF capture date and time to automatically create year/month/day folder structures.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">✏️</div>
+        <h4>Flexible Renaming</h4>
+        <p>Freely combine tokens such as date, time, sequence number, and camera name to set custom file names.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎛️</div>
+        <h4>File Type Filter</h4>
+        <p>Choose only the file types you want to import: RAW, JPEG, HEIC, video, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💾</div>
+        <h4>Simultaneous Backup Copy</h4>
+        <p>Mirror copy to another drive simultaneously while importing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h4>Copy Verification</h4>
+        <p>Verify copy accuracy using file size comparison or SHA-256 checksum.</p>
+      </div>
+    </div>
+
+    <h3>System Requirements</h3>
+    <table>
+      <tr><th>Item</th><th>Requirement</th></tr>
+      <tr><td>OS</td><td>macOS 15 Sequoia or later</td></tr>
+      <tr><td>Architecture</td><td>Apple Silicon (M series) / Intel (Universal Binary)</td></tr>
+      <tr><td>Supported Media</td><td>SD cards, CFexpress cards, XQD cards, USB-connected cameras (devices with a DCIM folder)</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>⚠️ About the Preview Version</strong><br>
+      The version currently available is a preview. It is available until <strong>December 31, 2026</strong>. After the expiry date, a message will appear at launch and the app will quit. Please wait for the latest release information.
+    </div>
+  </section>
+
+  <!-- 2. Getting Started -->
+  <section id="getting-started">
+    <h2>2. Getting Started</h2>
+
+    <h3>Launching the App</h3>
+    <p>
+      When you launch ShotGather, no icon appears in the Dock. Instead, an <strong>SD card icon</strong> resides in the menu bar at the top right of your screen. Clicking this icon opens a menu where you can access import operations and settings.
+    </p>
+
+    <figure>
+      <img src="img/menubar_en.png" alt="Menu that appears when clicking the ShotGather menu bar icon" loading="lazy" decoding="async" width="220" height="175">
+      <figcaption>Menu displayed when clicking the menu bar icon</figcaption>
+    </figure>
+
+    <h3>Menu Items</h3>
+    <ul>
+      <li><strong>Import Photos…</strong> — Manually opens the import dialog</li>
+      <li><strong>Auto-detect Memory Cards</strong> — Toggles ON/OFF (checkmark indicates ON)</li>
+      <li><strong>Settings…</strong> — Opens the Preferences window</li>
+      <li><strong>About ShotGather</strong> — Displays version information</li>
+      <li><strong>Quit</strong> — Quits the app</li>
+    </ul>
+
+    <h3>Recommended Setup on First Launch</h3>
+    <p>Before using ShotGather for the first time, the following setup will make things smoother.</p>
+    <ol>
+      <li><strong>Set the destination folder</strong> — Set the destination folder for the default preset in the "Presets" tab of <a href="#settings">Settings</a>. Without this, you will need to select a folder every time you import.</li>
+      <li><strong>Launch at login</strong> — Turn on "Launch at Login" in the General tab of Settings so ShotGather automatically starts in the menu bar even after restarting your Mac.</li>
+    </ol>
+
+    <div class="tip">
+      <strong>💡 Tip</strong><br>
+      With "Auto-detect Memory Cards" turned ON, you'll receive a notification the moment a card is inserted, and you can start importing with a single click.
+    </div>
+  </section>
+
+  <!-- 3. Basic Import Flow -->
+  <section id="basic-flow">
+    <h2>3. Basic Import Flow</h2>
+
+    <p>Here is the typical process from inserting a memory card to completing an import.</p>
+
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <div class="step-title">Insert the memory card</div>
+          <p class="step-desc">Connect your SD card slot, card reader, or camera to your Mac via USB cable. Devices with a DCIM folder are eligible for auto-detection.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Start the import from a notification or the menu</div>
+          <p class="step-desc">If auto-detection is ON, you will receive a "Memory card detected" notification. Click the notification or select "Import Photos…" from the menu bar icon to open the import dialog.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Review the import settings</div>
+          <p class="step-desc">Select a preset or adjust the source, destination, file types, rename rules, and other settings as needed. You can preview the files to be imported in the file list.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Click "Start Import"</div>
+          <p class="step-desc">When ready, click the "Start Import (⌘Return)" button. The copy process will begin.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Monitor progress</div>
+          <p class="step-desc">You can monitor the copy status in real time on the progress screen. Press the "Cancel" button if you want to stop midway.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Review the results on the completion screen</div>
+          <p class="step-desc">A summary of imported files is displayed. Use the "Open Destination" button to jump directly to the folder in Finder.</p>
+        </div>
+      </li>
+    </ol>
+
+    <figure>
+      <img src="img/notification_en.png" alt="ShotGather — macOS notification when a memory card is inserted" loading="lazy" decoding="async" width="380" height="106">
+      <figcaption>macOS notification when a memory card is inserted</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/importview1_en.png" alt="ShotGather import dialog (default view)" loading="lazy" decoding="async" width="620" height="606">
+      <figcaption>Import dialog (default view)</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. Import Dialog Details -->
+  <section id="import-dialog">
+    <h2>4. Import Dialog Details</h2>
+
+    <p>The import dialog has multiple sections, each of which can be collapsed to keep the view tidy.</p>
+
+    <figure>
+      <img src="img/importview2_en.png" alt="ShotGather import dialog (all sections expanded)" loading="lazy" decoding="async" width="620" height="606">
+      <figcaption>Import dialog (all sections expanded)</figcaption>
+    </figure>
+
+    <h3>Presets</h3>
+    <p>
+      You can save commonly used combinations of settings as "Presets". Preparing presets for different shooting scenarios or camera models eliminates the need to change settings every time. Presets are managed in the "Presets" tab of the <a href="#settings">Settings window</a>.
+    </p>
+
+    <h3>Source / Destination</h3>
+    <ul>
+      <li><strong>Source</strong> — Select the memory card (volume) to read from. When auto-detected, it is selected automatically.</li>
+      <li><strong>Destination</strong> — Specify the folder where photos will be saved. Click "Browse…" to select from Finder.</li>
+    </ul>
+
+    <div class="note">
+      <strong>⚠️ About Access Permissions</strong><br>
+      ShotGather runs in the macOS sandbox environment, so access permissions to the destination folder are managed via Security-Scoped Bookmarks. If the folder is moved or deleted, or if you cancel out of the "Browse…" dialog, you will need to select the folder again.
+    </div>
+
+    <h3>Simultaneous Backup Copy</h3>
+    <p>
+      Copies files to another drive or folder in exactly the same structure at the same time as the main import. By specifying an external drive or NAS as the backup destination, redundancy is achieved simultaneously with importing.
+    </p>
+
+    <h3>File Types</h3>
+    <p>Select the types of files to import using checkboxes.</p>
+    <ul>
+      <li>RAW (CR3, ARW, NEF, ORF, RAF, and other major manufacturer RAW formats)</li>
+      <li>JPEG / HEIC</li>
+      <li>Video (MP4, MOV, etc.)</li>
+    </ul>
+
+    <h3>Folder Auto-sorting</h3>
+    <p>
+      Automatically creates subfolders in the destination based on the EXIF capture date and time. You can configure up to 5 folder levels, and add or remove levels with the +/− buttons. For each level, select a token from the dropdown and combine patterns per level. You can confirm the generated path in real time with the live preview.
+    </p>
+    <table>
+      <tr><th>Option</th><th>Description</th><th>Example output</th></tr>
+      <tr><td>Year (YYYY)</td><td>Capture year (4 digits)</td><td>2026</td></tr>
+      <tr><td>Year short (YY)</td><td>Capture year (2 digits)</td><td>26</td></tr>
+      <tr><td>Month (MM)</td><td>Capture month (2 digits, zero-padded)</td><td>04</td></tr>
+      <tr><td>Day (DD)</td><td>Capture day (2 digits, zero-padded)</td><td>24</td></tr>
+      <tr><td>Year-Month (YYYYMM)</td><td>Year and month combined (no separator)</td><td>202604</td></tr>
+      <tr><td>Year-Month (YYYY-MM)</td><td>Year and month combined (hyphen separator)</td><td>2026-04</td></tr>
+      <tr><td>Year_Month (YYYY_MM)</td><td>Year and month combined (underscore separator)</td><td>2026_04</td></tr>
+      <tr><td>Date (YYYYMMDD)</td><td>Capture date (year/month/day, no separator)</td><td>20260424</td></tr>
+      <tr><td>Date (YYYY-MM-DD)</td><td>Capture date (year/month/day, hyphen separator)</td><td>2026-04-24</td></tr>
+      <tr><td>Date (YYYY_MM_DD)</td><td>Capture date (year/month/day, underscore separator)</td><td>2026_04_24</td></tr>
+      <tr><td>Camera Name</td><td>Camera model name</td><td>EOS R5</td></tr>
+      <tr><td>Body Serial Number</td><td>Camera body serial number</td><td>123456789</td></tr>
+      <tr><td>Custom String</td><td>Any string (entered in a text field)</td><td>Travel</td></tr>
+      <tr><td>File Type (RAW/JPEG)</td><td>Creates subfolders by file type</td><td>RAW</td></tr>
+    </table>
+    <p>Example: Selecting "Date (YYYY-MM-DD)" for level 1 creates a folder named <code>2026-04-24/</code>.</p>
+    <p>Adding "File Type (RAW/JPEG)" to any level will sort RAW, JPEG, video, etc. into type-specific subfolders.</p>
+
+    <h3>File Name Rename</h3>
+    <p>
+      You can rename files during import. Click a button in the dialog to insert a token, or type directly into the text field to freely combine patterns. You can verify the resulting file name with the live preview.
+    </p>
+    <table>
+      <tr><th>Button</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>{date}</code></td><td>Capture date (yyyyMMdd format)</td><td>20260424</td></tr>
+      <tr><td><code>{time}</code></td><td>Capture time (HHmmss format)</td><td>143052</td></tr>
+      <tr><td><code>{year}</code></td><td>Capture year</td><td>2026</td></tr>
+      <tr><td><code>{month}</code></td><td>Capture month</td><td>04</td></tr>
+      <tr><td><code>{day}</code></td><td>Capture day</td><td>24</td></tr>
+      <tr><td><code>{seq}</code></td><td>Sequence number (3 digits)</td><td>001</td></tr>
+      <tr><td><code>{seq4}</code></td><td>Sequence number (4 digits)</td><td>0001</td></tr>
+      <tr><td><code>{seq5}</code></td><td>Sequence number (5 digits)</td><td>00001</td></tr>
+      <tr><td><code>{original}</code></td><td>Original file name (without extension)</td><td>IMG_1234</td></tr>
+      <tr><td><code>{camera}</code></td><td>Camera model name</td><td>EOS_R5</td></tr>
+      <tr><td><code>{camera_make}</code></td><td>Camera manufacturer name</td><td>Canon</td></tr>
+    </table>
+    <p>Example: <code>{date}_{time}_{seq}</code> → <code>20260424_143052_001.CR3</code></p>
+
+    <div class="tip">
+      <strong>💡 Direct Input</strong><br>
+      By typing directly into the text field, you can also use <code>{date_hyphen}</code> (yyyy-MM-dd format), <code>{time_hyphen}</code> (HH-mm-ss format), <code>{hour}</code>, <code>{minute}</code>, and <code>{second}</code>. The original file extension is always appended automatically, regardless of the pattern.
+    </div>
+
+    <p>The sequence number behavior can be set to one of the following 3 options.</p>
+    <ul>
+      <li><strong>Reset each time</strong> — Resets to 001 with every import</li>
+      <li><strong>Continue from last</strong> — Continues from where the last import left off</li>
+      <li><strong>Start from specified number</strong> — Starts from any number you specify</li>
+    </ul>
+
+    <h3>Duplicate Files</h3>
+    <ul>
+      <li><strong>Skip</strong> — Does not copy if a file with the same name already exists (protects existing files)</li>
+      <li><strong>Overwrite</strong> — Overwrites files with the same name</li>
+    </ul>
+
+    <h3>Copy Verification</h3>
+    <p>Verifies that copied files were written correctly.</p>
+    <ul>
+      <li><strong>Fast (file size comparison)</strong> — Speed-oriented. Checks that file sizes match.</li>
+      <li><strong>Safe (SHA-256 checksum)</strong> — Accuracy-oriented. Verifies a bit-for-bit match. Takes longer for large numbers of files.</li>
+    </ul>
+    <p>If a verification error occurs, it will automatically retry. If it still fails after retrying, the number of errors will be shown as "Verification Errors" on the completion screen.</p>
+
+    <h3>Action After Import</h3>
+    <ul>
+      <li><strong>Open destination in Finder</strong></li>
+      <li><strong>Open with a specified app</strong> (e.g., a RAW processing application)</li>
+      <li><strong>Do nothing</strong></li>
+    </ul>
+  </section>
+
+  <!-- 5. Progress and Completion -->
+  <section id="progress-and-complete">
+    <h2>5. Progress and Completion</h2>
+
+    <h3>Progress Screen</h3>
+    <p>After the import starts, the progress screen is displayed.</p>
+    <ul>
+      <li>The name of the file currently being processed and its converted path</li>
+      <li>Processing phase (<strong>Copying</strong> / <strong>Verifying</strong> / <strong>Backing up</strong>)</li>
+      <li>Progress bar and elapsed / remaining time</li>
+      <li>"Cancel" button (click to interrupt the import)</li>
+    </ul>
+
+    <figure>
+      <img src="img/progressview_en.png" alt="ShotGather progress screen during import" loading="lazy" decoding="async" width="620" height="606">
+      <figcaption>Progress screen during import</figcaption>
+    </figure>
+
+    <h3>Completion Screen</h3>
+    <p>When all processing is finished, the completion screen is displayed.</p>
+    <ul>
+      <li>Import count (successfully copied / skipped / overwritten / verification errors / backed up)</li>
+      <li>Total processing time</li>
+      <li>"Open Destination" button — Opens the destination folder in Finder</li>
+      <li>"Show Details" button — View a detailed log for each file</li>
+    </ul>
+
+    <figure>
+      <img src="img/completeview_en.png" alt="ShotGather import completion screen" loading="lazy" decoding="async" width="620" height="606">
+      <figcaption>Import completion screen</figcaption>
+    </figure>
+  </section>
+
+  <!-- 6. Settings -->
+  <section id="settings">
+    <h2>6. Settings (Preferences)</h2>
+
+    <p>Select "Settings…" from the menu bar icon or press <kbd>⌘,</kbd> to open the Settings window. Settings are organized into two tabs: "General" and "Presets".</p>
+
+    <h3>General Tab</h3>
+    <table>
+      <tr><th>Setting</th><th>Description</th></tr>
+      <tr><td>Launch at Login</td><td>Automatically starts ShotGather in the menu bar when your Mac starts up</td></tr>
+      <tr><td>Auto-detect Memory Cards</td><td>When ON, detects when a supported media card is inserted</td></tr>
+      <tr><td>Action on Detection</td><td>Choose "Show Notification" or "Show Dialog Directly" (disabled when auto-detection is OFF)</td></tr>
+      <tr><td>Play Sound on Completion</td><td>Plays a notification sound when the import completes</td></tr>
+      <tr><td>Language</td><td>Switch between System Default, Japanese, and English (restart required to apply)</td></tr>
+      <tr><td>Open Log Folder</td><td>Opens the log file storage folder in Finder</td></tr>
+    </table>
+
+    <figure>
+      <img src="img/settings_general_en.png" alt="ShotGather Settings window — General tab" loading="lazy" decoding="async" width="560" height="425">
+      <figcaption>Settings window — General tab</figcaption>
+    </figure>
+
+    <h3>Presets Tab</h3>
+    <p>
+      Manage all import-related settings in preset units, including destination folder, file types, folder sorting, renaming, duplicate file handling, copy verification, post-import action, and backup copy settings. Saving frequently used setting combinations as presets lets you switch quickly between shooting scenarios and camera models.
+    </p>
+    <ul>
+      <li><strong>+ button</strong> — Saves the current import settings as a new preset</li>
+      <li><strong>Double-click a preset name</strong> — Renames the preset</li>
+      <li><strong>− button</strong> — Deletes the selected preset</li>
+    </ul>
+
+    <figure>
+      <img src="img/settings_presets_en.png" alt="ShotGather Settings window — Presets tab" loading="lazy" decoding="async" width="560" height="406">
+      <figcaption>Settings window — Presets tab</figcaption>
+    </figure>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section id="faq">
+    <h2>7. Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. Will the original files be deleted?</div>
+      <div class="faq-answer">
+        <strong>No, they will not be deleted.</strong> ShotGather only copies files. Some digital cameras manage a proprietary database file on the memory card, and deleting the original files may interfere with the camera's operation. ShotGather never writes to the memory card and operates in read-only mode.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. I see a message saying "No access permission to the destination folder"</div>
+      <div class="faq-answer">
+        ShotGather runs in the macOS sandbox environment and maintains folder access permissions as Security-Scoped Bookmarks. Permissions may become invalid if the folder is moved or deleted, or if it has not been accessed for a long time. Please select the folder again using the "Browse…" button in the import dialog.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. The import dialog doesn't open when I insert a memory card</div>
+      <div class="faq-answer">
+        Please check the following.
+        <ol style="margin-top: 8px;">
+          <li>Is "Auto-detect Memory Cards" ON in the General tab of <a href="#settings">Settings</a>?</li>
+          <li>Does the memory card have a <strong>DCIM folder</strong>? (Cards photographed with a digital camera normally have one.)</li>
+          <li>Is ShotGather running? (The SD card icon should be visible in the menu bar.)</li>
+        </ol>
+        To open manually, select "Import Photos…" from the menu bar icon.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. A verification error was displayed</div>
+      <div class="faq-answer">
+        If the size or checksum of a copied file does not match the original, ShotGather will automatically retry. If it still fails after retrying, it will be displayed as a "Verification Error" on the completion screen. There may be a problem with the memory card or the destination drive. Try using a different card reader or checking the available space on the drive.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. How long can I use the preview version?</div>
+      <div class="faq-answer">
+        The current preview version is available until <strong>December 31, 2026</strong>. After the expiry date, a message saying "The usage period has ended" will appear at launch and the app will quit. Please use the latest version once the official release is available.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. Which RAW formats are supported?</div>
+      <div class="faq-answer">
+        All RAW formats supported by the macOS ImageIO framework are supported. This includes major manufacturers such as Canon (CR3, CR2), Nikon (NEF, NRW), Sony (ARW), FUJIFILM (RAF), Olympus / OM System (ORF), Panasonic (RW2), and Leica. The final list of supported formats depends on the version of macOS.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2026 shotgather.com. All rights reserved.
+    </p>
+  </footer>
+
+</main><!-- /page-wrapper -->
+</body>
+</html>
