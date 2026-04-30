@@ -370,6 +370,35 @@
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    /* Download CTA */
+    .download-cta {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: background 0.15s ease;
+    }
+    .download-btn:hover { background: var(--accent-hover); }
+    .download-terms {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .download-terms a { color: var(--accent); text-decoration: none; }
+    .download-terms a:hover { text-decoration: underline; }
+
     @media (max-width: 600px) {
       .site-header h1 { font-size: 22px; }
       section h2 { font-size: 21px; }
@@ -476,6 +505,14 @@
   <h1>ShotGather User Guide</h1>
   <p class="subtitle">Version 1.0 Preview &nbsp;|&nbsp; Requires macOS 15 or later</p>
   <p class="tagline">Batch import photos from SD cards, CFexpress, and XQD cards to your Mac — automatic date sorting, RAW support, simultaneous backup copy</p>
+  <div class="download-cta">
+    <a class="download-btn" href="./download/ShotGather_v1.0_Installer.zip" download>
+      Download ShotGather
+    </a>
+    <p class="download-terms">
+      By downloading, you agree to the <a href="terms.html">Terms of Service</a>.
+    </p>
+  </div>
 </header>
 
 <main class="page-wrapper">
