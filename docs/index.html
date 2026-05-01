@@ -17,8 +17,8 @@
 
   <!-- SEO -->
   <title>ShotGather — Photo Import App for Mac User Guide</title>
-  <meta name="description" content="ShotGather is a macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy.">
-  <meta name="keywords" content="ShotGather, photo import, photo ingest, Mac, macOS, SD card, CFexpress, XQD, RAW, JPEG, HEIC, video, menu bar, EXIF, auto-sort, backup, SHA-256, photo management, DxO PhotoLab, Capture One, Photoshop Elements 2026">
+  <meta name="description" content="ShotGather is a macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy. A great replacement for custom Automator or Image Capture photo import workflows.">
+  <meta name="keywords" content="ShotGather, photo import, photo ingest, Mac, macOS, SD card, CFexpress, XQD, RAW, JPEG, HEIC, video, menu bar, EXIF, auto-sort, backup, SHA-256, photo management, DxO PhotoLab, Capture One, Photoshop Elements 2026, Automator, Image Capture, folder action, workflow, automation, auto import photos, Mac photo auto sort">
   <meta name="author" content="satoshoh">
   <meta name="robots" content="index, follow">
   <!-- TODO: Update to actual URL when published -->
@@ -31,7 +31,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="ShotGather User Guide">
-  <meta property="og:description" content="Safely import photos and videos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, EXIF date-based auto-sorting, SHA-256 verification, simultaneous backup copy.">
+  <meta property="og:description" content="Safely import photos and videos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, EXIF date-based auto-sorting, SHA-256 verification, simultaneous backup copy. A great replacement for custom Automator or Image Capture import workflows.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="img/menubar_en.png">
@@ -39,7 +39,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ShotGather User Guide">
-  <meta name="twitter:description" content="Safely import photos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, date-based auto-sorting, SHA-256 verification.">
+  <meta name="twitter:description" content="Safely import photos from SD cards, CFexpress, and XQD cards to your Mac. RAW support, date-based auto-sorting, SHA-256 verification. Replaces custom Automator / Image Capture workflows.">
   <meta name="twitter:image" content="img/menubar_en.png">
 
   <style>
@@ -420,7 +420,7 @@
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "macOS 15+",
     "inLanguage": "en",
-    "description": "A macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy.",
+    "description": "A macOS menu bar app that safely imports photos and videos from SD cards, CFexpress, and XQD cards to your Mac. Supports RAW, EXIF date-based auto-sorting, SHA-256 verification, and simultaneous backup copy. A great replacement for custom Automator or Image Capture photo import workflows.",
     "softwareVersion": "1.0 Preview",
     "author": {
       "@type": "Person",
@@ -489,6 +489,14 @@
           "@type": "Answer",
           "text": "All RAW formats supported by the macOS ImageIO framework are supported, including major manufacturers such as Canon (CR3, CR2), Nikon (NEF, NRW), Sony (ARW), FUJIFILM (RAF), Olympus / OM System (ORF), Panasonic (RW2), and Leica."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use ShotGather instead of Automator or Image Capture?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If you've been using Automator folder actions or Image Capture's \"Connecting this camera opens\" option to auto-import photos to your Mac, ShotGather is a drop-in replacement. EXIF date-based folder sorting (year/month/day), file renaming, SHA-256 copy verification, and simultaneous backup copy can all be configured from the app's settings, so you no longer need to build and maintain custom workflows. ShotGather only copies — it never writes to the source card."
+        }
       }
     ]
   }
@@ -540,6 +548,9 @@
     </p>
     <p>
       It is designed to work alongside external RAW processing software such as DxO PhotoLab, Capture One and Photoshop Elements 2026. Features include automatic folder sorting by EXIF capture date, copy verification via SHA-256 checksum, and simultaneous backup copy.
+    </p>
+    <p>
+      If you've been building your own Mac photo import workflow with <strong>Automator</strong> folder actions or <strong>Image Capture</strong>'s "Connecting this camera opens" option, ShotGather is built for you. Instead of writing and maintaining custom workflows, you get EXIF date-based auto-sorting into year/month/day folders, flexible file renaming, SHA-256 copy verification, and simultaneous backup copy — all configured from the app's settings.
     </p>
 
     <h3>Key Features</h3>
@@ -920,6 +931,13 @@
       <div class="faq-question">Q. Which RAW formats are supported?</div>
       <div class="faq-answer">
         All RAW formats supported by the macOS ImageIO framework are supported. This includes major manufacturers such as Canon (CR3, CR2), Nikon (NEF, NRW), Sony (ARW), FUJIFILM (RAF), Olympus / OM System (ORF), Panasonic (RW2), and Leica. The final list of supported formats depends on the version of macOS.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. Can I use ShotGather instead of Automator or Image Capture?</div>
+      <div class="faq-answer">
+        <strong>Yes.</strong> If you've been using Automator folder actions or Image Capture's "Connecting this camera opens" option to auto-import photos to your Mac, ShotGather is a drop-in replacement. EXIF date-based folder sorting (year/month/day), file renaming, SHA-256 copy verification, and simultaneous backup copy can all be configured from the app's settings, so you no longer need to build and maintain custom workflows. ShotGather only copies — it never writes to the source card.
       </div>
     </div>
   </section>

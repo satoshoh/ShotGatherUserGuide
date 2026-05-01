@@ -17,8 +17,8 @@
 
   <!-- SEO -->
   <title>ShotGather — Mac 用写真取り込みアプリ ユーザーガイド</title>
-  <meta name="description" content="ShotGather は SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込みできる macOS メニューバーアプリです。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピー機能を搭載。">
-  <meta name="keywords" content="ShotGather, 写真取り込み, Mac, macOS, SDカード, CFexpress, XQD, RAW, JPEG, HEIC, 動画, メニューバー, EXIF, 自動振り分け, バックアップ, SHA-256, 写真管理, DxO PhotoLab, Capture One, Photoshop Elements 2026">
+  <meta name="description" content="ShotGather は SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込みできる macOS メニューバーアプリです。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピー機能を搭載。Automator やイメージキャプチャで写真の自動取り込みワークフローを自作してきた方の乗り換えにも最適です。">
+  <meta name="keywords" content="ShotGather, 写真取り込み, Mac, macOS, SDカード, CFexpress, XQD, RAW, JPEG, HEIC, 動画, メニューバー, EXIF, 自動振り分け, バックアップ, SHA-256, 写真管理, DxO PhotoLab, Capture One, Photoshop Elements 2026, Automator, オートメーター, イメージキャプチャ, Image Capture, フォルダアクション, ワークフロー, 自動化, 写真 自動取り込み, Mac 写真 自動振り分け">
   <meta name="author" content="satoshoh">
   <meta name="robots" content="index, follow">
   <!-- TODO: 公開時に実際の URL へ更新してください -->
@@ -31,7 +31,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="ShotGather ユーザーガイド">
-  <meta property="og:description" content="SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込み。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピー。">
+  <meta property="og:description" content="SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込み。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピー。Automator やイメージキャプチャの自動取り込みワークフローからの乗り換えにも最適。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="img/menubar_ja.png">
@@ -39,7 +39,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ShotGather ユーザーガイド">
-  <meta name="twitter:description" content="SD カード・CFexpress・XQD からの写真を Mac へ安全に一括取り込み。RAW 対応・日付自動振り分け・SHA-256 検証。">
+  <meta name="twitter:description" content="SD カード・CFexpress・XQD からの写真を Mac へ安全に一括取り込み。RAW 対応・日付自動振り分け・SHA-256 検証。Automator／イメージキャプチャの自動取り込みからの乗り換えにも。">
   <meta name="twitter:image" content="img/menubar_ja.png">
 
   <style>
@@ -420,7 +420,7 @@
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "macOS 15+",
     "inLanguage": "ja",
-    "description": "SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込みできる macOS メニューバーアプリ。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピーを搭載。",
+    "description": "SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込みできる macOS メニューバーアプリ。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピーを搭載。Automator やイメージキャプチャで写真の自動取り込みワークフローを自作してきた方の乗り換えにも最適。",
     "softwareVersion": "1.0 プレビュー",
     "author": {
       "@type": "Person",
@@ -489,6 +489,14 @@
           "@type": "Answer",
           "text": "macOS の ImageIO フレームワークが対応しているすべての RAW 形式をサポートしています。Canon（CR3、CR2）、Nikon（NEF、NRW）、Sony（ARW）、FUJIFILM（RAF）、Olympus / OM System（ORF）、Panasonic（RW2）、Leica などの主要メーカーに対応しています。"
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Automator やイメージキャプチャの代わりに使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。これまで Automator のフォルダアクションや、イメージキャプチャ（Image Capture）の「読み込み時に開く項目」で写真の自動取り込みを行っていた方は、ShotGather にそのまま置き換えられます。EXIF 撮影日時による年／月／日フォルダへの自動振り分け、ファイル名リネーム、SHA-256 による検証、バックアップへの同時コピーをすべてアプリの設定画面から構成できるため、ワークフローを自作・保守する必要がありません。コピーのみで元ファイルには一切書き込みません。"
+        }
       }
     ]
   }
@@ -540,6 +548,9 @@
     </p>
     <p>
       DxO PhotoLab、Capture One、Photoshop Elements 2026などの外部 RAW 現像ソフトと組み合わせて使うことを想定しています。EXIF の撮影日時で自動振り分け、SHA-256 チェックサム検証によるコピー確認、バックアップ同時コピーに対応しています。
+    </p>
+    <p>
+      これまで <strong>Automator</strong>（オートメーター）のフォルダアクションや、<strong>イメージキャプチャ</strong>（Image Capture）の「読み込み時に開く項目」を使って Mac への写真自動取り込みワークフローを自作してきた方にもおすすめです。ShotGather を使えば、ワークフローを組んだり保守したりしなくても、EXIF の撮影日時による年／月／日フォルダへの自動振り分け、ファイル名のリネーム、SHA-256 によるコピー検証、バックアップへの同時コピーまでを、アプリの設定画面だけで完結できます。
     </p>
 
     <h3>主な特長</h3>
@@ -920,6 +931,13 @@
       <div class="faq-question">Q. 対応している RAW フォーマットを教えてください</div>
       <div class="faq-answer">
         macOS の ImageIO フレームワークが対応しているすべての RAW 形式をサポートしています。Canon（CR3、CR2）、Nikon（NEF、NRW）、Sony（ARW）、FUJIFILM（RAF）、Olympus / OM System（ORF）、Panasonic（RW2）、Leica などの主要メーカーに対応しています。最終的な対応状況は macOS のバージョンに依存します。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q. Automator や「イメージキャプチャ」の代わりに使えますか？</div>
+      <div class="faq-answer">
+        <strong>はい。</strong> これまで Automator のフォルダアクションや、イメージキャプチャ（Image Capture）の「読み込み時に開く項目」で写真の自動取り込みを行っていた方は、ShotGather にそのまま置き換えられます。EXIF 撮影日時による年／月／日フォルダへの自動振り分け、ファイル名リネーム、SHA-256 による検証、バックアップへの同時コピーをすべてアプリの設定画面から構成できるため、ワークフローを自作・保守する必要がありません。コピーのみで元ファイルには一切書き込みません。
       </div>
     </div>
   </section>
