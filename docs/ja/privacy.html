@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f0ddcd08-d408-4e96-93b6-4f447b7fa1a3" type="text/javascript" async></script>
+  <script data-cookieconsent="ignore">    window.dataLayer = window.dataLayer || [];    function gtag() {        dataLayer.push(arguments);    }    gtag("consent", "default", {        ad_personalization: "denied",        ad_storage: "denied",        ad_user_data: "denied",        analytics_storage: "denied",        functionality_storage: "denied",        personalization_storage: "denied",        security_storage: "granted",        wait_for_update: 500,    });    gtag("set", "ads_data_redaction", true);    gtag("set", "url_passthrough", false);</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSY6QRTJ41"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JSY6QRTJ41');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- SEO -->
+  <title>ShotGather — プライバシーポリシー</title>
+  <meta name="description" content="ShotGather（macOS 用写真取り込みアプリ）および shotgather.com ウェブサイトのプライバシーポリシーです。">
+  <meta name="author" content="satoshoh">
+  <meta name="robots" content="index, follow">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="../privacy.html">
+  <link rel="alternate" hreflang="ja" href="./privacy.html">
+  <link rel="alternate" hreflang="x-default" href="../privacy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShotGather プライバシーポリシー">
+  <meta property="og:description" content="ShotGather（macOS 用写真取り込みアプリ）および shotgather.com ウェブサイトのプライバシーポリシー。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f7;
+      --bg-code: #f2f2f7;
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --border: #d2d2d7;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+      --radius: 10px;
+      --note-bg: #fff8e1;
+      --note-border: #f0c040;
+      --note-text: #5c4a00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --bg-secondary: #1c1c1e;
+        --bg-code: #2c2c2e;
+        --text: #f5f5f7;
+        --text-secondary: #98989d;
+        --accent: #2997ff;
+        --accent-hover: #47a8ff;
+        --border: #3a3a3c;
+        --shadow: 0 2px 16px rgba(0,0,0,0.5);
+        --note-bg: #2c2a00;
+        --note-border: #f0c040;
+        --note-text: #f0e6a0;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .back-link {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      font-size: 13px;
+    }
+    .back-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back-link a:hover { text-decoration: underline; }
+    .site-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .site-header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Layout */
+    .page-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 32px 0 40px;
+    }
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .toc li { margin-bottom: 4px; }
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section {
+      margin-bottom: 52px;
+    }
+    section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scroll-margin-top: 20px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+    li:last-child { margin-bottom: 0; }
+
+    /* Preamble / intro block */
+    .preamble {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 28px 0 40px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .preamble p { margin-bottom: 10px; }
+    .preamble p:last-child { margin-bottom: 0; }
+
+    /* TODO marker */
+    .todo {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #664d03;
+    }
+    @media (prefers-color-scheme: dark) {
+      .todo {
+        background: #3d2f00;
+        border-color: #ffc107;
+        color: #ffdf7e;
+      }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 0;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer p + p { margin-top: 8px; }
+
+    @media (max-width: 600px) {
+      .site-header h1 { font-size: 22px; }
+      section h2 { font-size: 19px; }
+      .back-link { position: static; margin-bottom: 12px; display: block; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="back-link">
+    <a href="index.html">&laquo; ユーザーガイドに戻る</a>
+  </div>
+  <h1>ShotGather プライバシーポリシー</h1>
+  <p class="subtitle">制定日：2026年5月10日</p>
+</header>
+
+<main class="page-wrapper">
+
+  <!-- 前文 -->
+  <div class="preamble">
+    <p>
+      本プライバシーポリシー（以下「本ポリシー」といいます）は、shotgather.com（以下「当方」といいます）が提供する macOS アプリケーション「ShotGather」（以下「本アプリ」といいます）および shotgather.com ウェブサイト（以下「本サイト」といいます）における情報の取扱いについて定めるものです。
+    </p>
+  </div>
+
+  <!-- 目次 -->
+  <nav class="toc" aria-label="目次">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#section-1">本アプリにおけるデータの取扱い</a></li>
+      <li><a href="#section-2">エラー情報の収集</a></li>
+      <li><a href="#section-3">ウェブサイトのアクセス解析</a></li>
+      <li><a href="#section-4">Cookie（クッキー）について</a></li>
+      <li><a href="#section-5">第三者サービス</a></li>
+      <li><a href="#section-6">お子様のプライバシー</a></li>
+      <li><a href="#section-7">本ポリシーの変更</a></li>
+      <li><a href="#section-8">お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <!-- 第1条 -->
+  <section id="section-1">
+    <h2>1. 本アプリにおけるデータの取扱い</h2>
+    <p>本アプリは Mac 上でローカルに動作します。以下のデータを外部サーバーに送信・収集することはありません。</p>
+    <ul>
+      <li>写真・動画ファイル、およびそのメタデータ（EXIF 情報等）</li>
+      <li>取り込み先フォルダのパス情報</li>
+      <li>アプリの設定情報</li>
+    </ul>
+    <p>ユーザーが選択した取り込み先フォルダのパス情報は、macOS のセキュリティ機構（Security-Scoped Bookmark）として、ユーザーの Mac 端末内にのみ保持されます。</p>
+    <p>macOS の通知機能（UserNotifications）は Apple が提供する macOS 標準の機構に依存するものであり、Apple のプライバシーポリシーが適用されます。</p>
+  </section>
+
+  <!-- 第2条 -->
+  <section id="section-2">
+    <h2>2. エラー情報の収集</h2>
+    <p>本アプリの品質・安定性の改善を目的として、当方はクラウド型エラー追跡サービス GlitchTip（<a href="https://glitchtip.com" target="_blank" rel="noopener">glitchtip.com</a>）を使用してエラー情報を収集しています。エラー発生時に以下のデータが収集される場合があります。</p>
+    <ul>
+      <li>クラッシュログおよびエラーメッセージ</li>
+      <li>スタックトレース</li>
+      <li>デバイス情報（Mac のモデル名）</li>
+      <li>オペレーティングシステムのバージョン</li>
+      <li>アプリのバージョン</li>
+    </ul>
+    <p>このエラー報告を通じて、写真・動画ファイルおよび個人を特定する情報が送信されることは<strong>ありません</strong>。</p>
+    <p>GlitchTip におけるデータの取扱いについては、<a href="https://glitchtip.com/legal/privacy" target="_blank" rel="noopener">GlitchTip のプライバシーポリシー</a>をご参照ください。</p>
+  </section>
+
+  <!-- 第3条 -->
+  <section id="section-3">
+    <h2>3. ウェブサイトのアクセス解析</h2>
+    <p>本サイトでは、サイトの改善を目的として Google アナリティクスを使用し、匿名化されたアクセス統計を収集しています。収集されるデータは以下のとおりです。</p>
+    <ul>
+      <li>ページビューおよび閲覧経路</li>
+      <li>デバイス・ブラウザ情報</li>
+      <li>参照元（リファラー）</li>
+    </ul>
+    <p>このデータは <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google のプライバシーポリシー</a>に基づいて処理されます。本サイトでは Google アナリティクスを通じて個人を特定する情報を意図的に収集することはありません。</p>
+  </section>
+
+  <!-- 第4条 -->
+  <section id="section-4">
+    <h2>4. Cookie（クッキー）について</h2>
+    <p>本サイトでは、Cookie の同意管理のために Cookiebot を使用しています。使用される Cookie の種類は以下のとおりです。</p>
+    <ul>
+      <li><strong>必須 Cookie：</strong>Cookie 同意機能の動作に必要な Cookie です。</li>
+      <li><strong>解析 Cookie：</strong>Google アナリティクスが匿名化されたアクセスデータの収集に使用します（ユーザーの同意がある場合にのみ設定されます）。</li>
+    </ul>
+    <p>ユーザーは、本サイトに表示される Cookiebot の同意バナーを通じて、いつでも Cookie の設定を管理できます。詳細については <a href="https://www.cookiebot.com/en/privacy-policy/" target="_blank" rel="noopener">Cookiebot のプライバシーポリシー</a>をご参照ください。</p>
+    <p>本アプリ自体は Cookie を使用しません。</p>
+  </section>
+
+  <!-- 第5条 -->
+  <section id="section-5">
+    <h2>5. 第三者サービス</h2>
+    <p>本アプリおよび本サイトは、以下の第三者サービスを利用しています。各サービスにはそれぞれの利用規約・プライバシーポリシーが適用されます。</p>
+    <ul>
+      <li><strong>Apple（macOS、App Store、UserNotifications、ImageIO）：</strong><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple プライバシーポリシー</a></li>
+      <li><strong>GlitchTip（エラー追跡）：</strong><a href="https://glitchtip.com/legal/privacy" target="_blank" rel="noopener">GlitchTip プライバシーポリシー</a></li>
+      <li><strong>Google アナリティクス（ウェブサイト解析）：</strong><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a></li>
+      <li><strong>Cookiebot（Cookie 同意管理）：</strong><a href="https://www.cookiebot.com/en/privacy-policy/" target="_blank" rel="noopener">Cookiebot プライバシーポリシー</a></li>
+    </ul>
+  </section>
+
+  <!-- 第6条 -->
+  <section id="section-6">
+    <h2>6. お子様のプライバシー</h2>
+    <p>本アプリは App Store 上で 13 歳以上のユーザーを対象として提供しています。当方は 13 歳未満のお子様から意図的に個人情報を収集することはありません。</p>
+    <p>保護者の方が、13 歳未満のお子様が個人情報を提供したことに気づかれた場合は、第 8 項の連絡先までご連絡ください。速やかに当該情報を削除いたします。</p>
+  </section>
+
+  <!-- 第7条 -->
+  <section id="section-7">
+    <h2>7. 本ポリシーの変更</h2>
+    <p>当方は、本ポリシーを随時更新することがあります。変更がある場合は、本ページに変更内容を掲載し、施行日を更新します。変更後に本アプリまたは本サイトを引き続き利用された場合、改定後のポリシーに同意したものとみなします。</p>
+  </section>
+
+  <!-- 第8条 -->
+  <section id="section-8">
+    <h2>8. お問い合わせ</h2>
+    <p>本ポリシーに関するご質問・ご懸念については、以下の窓口までお問い合わせください。</p>
+    <p>68.gosling.boxiest[at]icloud.com</p>
+    <p>[at]を@に変えて送信してください。</p>
+    <p>お問い合わせの際は件名に [ShotGatherSupport] と含めてください。</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 shotgather.com. All rights reserved.</p>
+    <p><a href="index.html">&laquo; ユーザーガイドに戻る</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
