@@ -49,17 +49,9 @@
       --bg-code: #f2f2f7;
       --text: #1d1d1f;
       --text-secondary: #6e6e73;
-      --accent: #0071e3;
-      --accent-hover: #0077ed;
+      --accent: #0066cc;
       --border: #d2d2d7;
-      --shadow: 0 2px 12px rgba(0,0,0,0.10);
-      --radius: 10px;
-      --note-bg: #fff8e1;
-      --note-border: #f0c040;
-      --note-text: #5c4a00;
-      --tip-bg: #e8f5e9;
-      --tip-border: #66bb6a;
-      --tip-text: #1b5e20;
+      --border-light: #e8e8ed;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -69,15 +61,8 @@
         --text: #f5f5f7;
         --text-secondary: #98989d;
         --accent: #2997ff;
-        --accent-hover: #47a8ff;
         --border: #3a3a3c;
-        --shadow: 0 2px 16px rgba(0,0,0,0.5);
-        --note-bg: #2c2a00;
-        --note-border: #f0c040;
-        --note-text: #f0e6a0;
-        --tip-bg: #0d2b0d;
-        --tip-border: #66bb6a;
-        --tip-text: #a5d6a7;
+        --border-light: #2c2c2e;
       }
     }
 
@@ -87,51 +72,23 @@
       font-family: -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.8;
       font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Header */
     .site-header {
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 24px 20px;
+      border-bottom: 1px solid var(--border-light);
+      padding: 40px 24px 32px;
       text-align: center;
       position: relative;
     }
-
-    /* Language switcher */
-    .lang-switch {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .lang-switch a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .lang-switch a:hover { text-decoration: underline; }
-    .lang-switch a[aria-current="page"] {
-      color: var(--text);
-      font-weight: 700;
-      pointer-events: none;
-      text-decoration: none;
-    }
-    .lang-switch span { color: var(--text-secondary); }
-    .site-header .app-icon {
-      font-size: 48px;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
     .site-header h1 {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
     }
     .site-header .subtitle {
       color: var(--text-secondary);
@@ -139,84 +96,82 @@
     }
     .site-header .tagline {
       color: var(--text-secondary);
-      font-size: 13px;
-      margin-top: 6px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
+      font-size: 14px;
+      margin: 10px auto 0;
+      max-width: 540px;
+      line-height: 1.7;
     }
+    .site-header .store-badge {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lang-switch a { color: var(--accent); text-decoration: none; }
+    .lang-switch a:hover { text-decoration: underline; }
+    .lang-switch a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      pointer-events: none;
+    }
+    .lang-switch span { color: var(--text-secondary); }
 
     /* Layout */
     .page-wrapper {
-      max-width: 820px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px 72px;
     }
 
     /* TOC */
-    .toc {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin: 32px 0 40px;
-    }
+    .toc { margin: 40px 0 8px; }
     .toc h2 {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       color: var(--text-secondary);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .toc ol {
       list-style: decimal;
-      padding-left: 20px;
+      padding-left: 24px;
+      margin: 0;
     }
-    .toc li {
-      margin-bottom: 4px;
-    }
-    .toc a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 15px;
-    }
+    .toc li { margin: 2px 0; }
+    .toc a { color: var(--accent); text-decoration: none; font-size: 15px; }
     .toc a:hover { text-decoration: underline; }
 
     /* Sections */
-    section {
-      margin-bottom: 60px;
-    }
+    section { margin-top: 56px; }
     section h2 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      scroll-margin-top: 20px;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      scroll-margin-top: 24px;
     }
     section h3 {
       font-size: 18px;
       font-weight: 600;
-      margin: 28px 0 10px;
-      scroll-margin-top: 20px;
+      margin: 32px 0 10px;
+      scroll-margin-top: 24px;
     }
-    section h4 {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin: 18px 0 6px;
-    }
-    p { margin-bottom: 12px; }
+    p { margin-bottom: 14px; }
     p:last-child { margin-bottom: 0; }
 
     ul, ol {
-      padding-left: 22px;
-      margin-bottom: 12px;
+      padding-left: 24px;
+      margin-bottom: 14px;
     }
-    li { margin-bottom: 4px; }
+    li { margin-bottom: 6px; }
     li:last-child { margin-bottom: 0; }
 
     /* Code / tokens */
@@ -224,102 +179,44 @@
       font-family: "SF Mono", "Menlo", "Monaco", monospace;
       font-size: 13px;
       background: var(--bg-code);
-      color: var(--accent);
       border-radius: 4px;
       padding: 1px 6px;
     }
 
-    /* Screenshots */
-    figure {
-      margin: 20px 0 24px;
+    kbd {
+      font-family: -apple-system, sans-serif;
+      font-size: 13px;
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0 5px;
     }
+
+    /* Screenshots */
+    figure { margin: 20px 0 28px; }
     figure img {
       display: block;
       max-width: 100%;
       height: auto;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       border: 1px solid var(--border);
+      border-radius: 6px;
     }
     figcaption {
       font-size: 13px;
       color: var(--text-secondary);
       margin-top: 8px;
-      text-align: center;
     }
 
-    /* Note / Tip callouts */
-    .note, .tip {
-      border-left: 4px solid;
-      border-radius: 0 var(--radius) var(--radius) 0;
+    /* Callout */
+    .callout {
+      background: var(--bg-secondary);
+      border-radius: 8px;
       padding: 12px 16px;
       margin: 16px 0;
       font-size: 14.5px;
     }
-    .note {
-      background: var(--note-bg);
-      border-color: var(--note-border);
-      color: var(--note-text);
-    }
-    .tip {
-      background: var(--tip-bg);
-      border-color: var(--tip-border);
-      color: var(--tip-text);
-    }
-    .note strong, .tip strong { display: inline-block; margin-bottom: 2px; }
 
-    /* Feature grid */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .feature-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .feature-card .icon { font-size: 24px; margin-bottom: 8px; }
-    .feature-card h4 { color: var(--text); font-size: 14px; margin: 0 0 4px; }
-    .feature-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
-
-    /* Workflow steps */
-    .steps {
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-    }
-    .steps li {
-      counter-increment: step;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .steps li:last-child { border-bottom: none; }
-    .steps li::before {
-      content: counter(step);
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-    .steps li .step-content { flex: 1; }
-    .steps li .step-title { font-weight: 600; margin-bottom: 2px; }
-    .steps li .step-desc { font-size: 14px; color: var(--text-secondary); margin: 0; }
-
-    /* Token table */
+    /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -328,41 +225,28 @@
     }
     th {
       text-align: left;
-      background: var(--bg-secondary);
-      padding: 8px 12px;
-      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-bottom: 2px solid var(--border);
       font-weight: 600;
     }
     td {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-light);
       vertical-align: top;
     }
-    tr:nth-child(even) td { background: var(--bg-secondary); }
 
     /* FAQ */
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-      overflow: hidden;
+    .faq h3 {
+      font-size: 16px;
+      margin-top: 28px;
     }
-    .faq-question {
-      font-weight: 600;
-      padding: 14px 16px;
-      background: var(--bg-secondary);
-      font-size: 15px;
-    }
-    .faq-answer {
-      padding: 14px 16px;
-      font-size: 14.5px;
-      line-height: 1.65;
-    }
+    .faq h3:first-of-type { margin-top: 16px; }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0 0;
+      border-top: 1px solid var(--border-light);
+      margin-top: 64px;
+      padding-top: 28px;
       text-align: center;
       color: var(--text-secondary);
       font-size: 13px;
@@ -370,43 +254,14 @@
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* Download CTA */
-    .download-cta {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .download-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 17px;
-      font-weight: 600;
-      padding: 14px 36px;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: background 0.15s ease;
-    }
-    .download-btn:hover { background: var(--accent-hover); }
-    .download-terms {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin: 0;
-    }
-    .download-terms a { color: var(--accent); text-decoration: none; }
-    .download-terms a:hover { text-decoration: underline; }
-
     @media (max-width: 600px) {
-      .site-header h1 { font-size: 22px; }
+      .site-header { padding: 28px 20px 24px; }
+      .site-header h1 { font-size: 24px; }
       section h2 { font-size: 21px; }
-      .feature-grid { grid-template-columns: 1fr 1fr; }
       .lang-switch {
         position: static;
         justify-content: center;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
     }
   </style>
@@ -421,7 +276,6 @@
     "operatingSystem": "macOS 15+",
     "inLanguage": "ja",
     "description": "SD カード・CFexpress・XQD カードからの写真・動画を Mac へ安全に一括取り込みできる macOS メニューバーアプリ。RAW 対応、EXIF 日付自動振り分け、SHA-256 検証、バックアップ同時コピーを搭載。Automator やイメージキャプチャで写真の自動取り込みワークフローを自作してきた方の乗り換えにも最適。",
-    "softwareVersion": "1.0",
     "author": {
       "@type": "Person",
       "name": "satoshoh"
@@ -478,7 +332,7 @@
         "name": "対応している RAW フォーマットを教えてください",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "macOS の ImageIO フレームワークが対応しているすべての RAW 形式をサポートしています。Canon（CR3、CR2）、Nikon（NEF、NRW）、Sony（ARW）、FUJIFILM（RAF）、Olympus / OM System（ORF）、Panasonic（RW2）、Leica などの主要メーカーに対応しています。"
+          "text": "対応している RAW 形式は次のとおりです。Canon（CR3、CR2）、Nikon（NEF、NRW）、Sony（ARW）、FUJIFILM（RAF）、OM SYSTEM / Olympus（ORF）、Panasonic（RW2）、PENTAX（PEF）、Phase One（IIQ）、Hasselblad（3FR）、Samsung（SRW）、および DNG。"
         }
       },
       {
@@ -502,13 +356,11 @@
     <a href="../index.html" hreflang="en">English</a>
   </nav>
   <h1>ShotGather ユーザーガイド</h1>
-  <p class="subtitle">バージョン 1.0 &nbsp;|&nbsp; macOS 15 以降対応 &nbsp;|&nbsp; 無料</p>
-  <p class="tagline">SD カード・CFexpress・XQD から Mac へ写真を一括取り込み — 日付自動振り分け・RAW 対応・バックアップ同時コピー</p>
-  
-  <a href="https://apps.apple.com/jp/app/shotgather/id6767961950?mt=12&itscg=30200&itsct=apps_box_badge&mttnsubad=6767961950" style="display: inline-block;">
+  <p class="subtitle">macOS 15 以降対応 ・ 無料</p>
+  <p class="tagline">SD カード・CFexpress・XQD から Mac へ写真を一括取り込み。日付自動振り分け・RAW 対応・バックアップ同時コピー。</p>
+  <a class="store-badge" href="https://apps.apple.com/jp/app/shotgather/id6767961950?mt=12&itscg=30200&itsct=apps_box_badge&mttnsubad=6767961950">
     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?releaseDate=1779062400" alt="App Storeでダウンロード" style="width: 223px; height: 82px; vertical-align: middle; object-fit: contain;" />
   </a>
-    
 </header>
 
 <main class="page-wrapper">
@@ -532,48 +384,24 @@
     <h2>1. ShotGather とは</h2>
 
     <p>
-      <strong>ShotGather</strong> は、SD カード・CFexpress・XQD カードやカメラ USB 接続から Mac へ写真・動画を安全かつ高速に一括取り込みできる macOS メニューバーアプリです。「Shot（撮影）+ Gather（集める）」のコンセプトのもと、撮影後の写真整理をすばやく・確実に行えるよう設計されています。<strong>元ファイルは一切削除せず、コピーのみ</strong>を行います。
+      <strong>ShotGather</strong> は、カメラで撮影した写真・動画をメディアカードから Mac へ取り込むための無料の macOS メニューバーアプリです。SD カード・CFexpress・XQD カードや USB 接続のカメラに対応し、取り込みは<strong>コピーのみ</strong>で行います。カード上の元ファイルを削除したり書き換えたりすることは一切ありません。
     </p>
     <p>
-      DxO PhotoLab、Capture One、Photoshop Elements 2026などの外部 RAW 現像ソフトと組み合わせて使うことを想定しています。EXIF の撮影日時で自動振り分け、SHA-256 チェックサム検証によるコピー確認、バックアップ同時コピーに対応しています。
+      取り込み時には、EXIF の撮影日時をもとにした年／月／日フォルダへの自動振り分け、ファイル名の一括リネーム、SHA-256 チェックサムによるコピー検証、別ドライブへのバックアップ同時コピーまでを一度に行えます。DxO PhotoLab、Capture One、Photoshop Elements 2026 などの RAW 現像ソフトと組み合わせて使うことを想定しています。
     </p>
     <p>
-      これまで <strong>Automator</strong>（オートメーター）のフォルダアクションや、<strong>イメージキャプチャ</strong>（Image Capture）の「読み込み時に開く項目」を使って Mac への写真自動取り込みワークフローを自作してきた方にもおすすめです。ShotGather を使えば、ワークフローを組んだり保守したりしなくても、EXIF の撮影日時による年／月／日フォルダへの自動振り分け、ファイル名のリネーム、SHA-256 によるコピー検証、バックアップへの同時コピーまでを、アプリの設定画面だけで完結できます。
+      これまで <strong>Automator</strong> のフォルダアクションや<strong>イメージキャプチャ</strong>（Image Capture）で写真の自動取り込みワークフローを自作してきた方は、ShotGather にそのまま置き換えられます。ワークフローを組んだり保守したりする必要はなく、すべてアプリの設定画面だけで完結します。
     </p>
 
-    <h3>主な特長</h3>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="icon">🔍</div>
-        <h4>メディアカード自動検出</h4>
-        <p>SD・CFexpress・XQD カードや USB カメラ接続を挿すと自動で通知します。</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">📁</div>
-        <h4>日付自動振り分け</h4>
-        <p>EXIF の撮影日時を読み取り、年/月/日などのフォルダ構造を自動生成します。</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">✏️</div>
-        <h4>柔軟なリネーム</h4>
-        <p>日付・時刻・連番・カメラ名などのトークンを組み合わせて自由にファイル名を設定できます。</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🎛️</div>
-        <h4>ファイル種類フィルタ</h4>
-        <p>RAW・JPEG・HEIC・動画など、取り込みたいファイル種類だけを選べます。</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">💾</div>
-        <h4>バックアップ同時コピー</h4>
-        <p>取り込みと同時に、別ドライブへのミラーコピーも行えます。</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🔒</div>
-        <h4>コピー検証</h4>
-        <p>ファイルサイズ比較または SHA-256 チェックサムで、コピーの正確性を確認します。</p>
-      </div>
-    </div>
+    <h3>主な機能</h3>
+    <ul>
+      <li><strong>メディアカード自動検出</strong> — SD・CFexpress・XQD カードや USB カメラの接続を検出し、通知します。</li>
+      <li><strong>日付自動振り分け</strong> — EXIF の撮影日時を読み取り、年/月/日などのフォルダ構造を自動生成します。</li>
+      <li><strong>ファイル名リネーム</strong> — 日付・時刻・連番・カメラ名などのトークンを組み合わせて自由に設定できます。</li>
+      <li><strong>ファイル種類フィルタ</strong> — RAW・JPEG・TIFF・HEIF・動画から、取り込みたい種類だけを選べます。</li>
+      <li><strong>バックアップ同時コピー</strong> — 取り込みと同時に、別ドライブへのミラーコピーも行えます。</li>
+      <li><strong>コピー検証</strong> — ファイルサイズ比較または SHA-256 チェックサムで、コピーの正確性を確認します。</li>
+    </ul>
 
     <h3>動作環境</h3>
     <table>
@@ -590,7 +418,7 @@
 
     <h3>アプリの起動</h3>
     <p>
-      ShotGather を起動すると、Dock にはアイコンは表示されません。かわりに、画面右上のメニューバーに <strong>SD カードのアイコン</strong>が常駐します。このアイコンをクリックするとメニューが開き、取り込み操作や設定にアクセスできます。
+      ShotGather を起動しても、Dock にアイコンは表示されません。かわりに、画面右上のメニューバーに <strong>SD カードのアイコン</strong>が常駐します。このアイコンをクリックするとメニューが開き、取り込み操作や設定にアクセスできます。
     </p>
 
     <figure>
@@ -603,20 +431,20 @@
       <li><strong>写真を取り込む…</strong> — 取り込みダイアログを手動で開きます</li>
       <li><strong>メディアカード自動検出</strong> — ON/OFF を切り替えます（チェックマーク付きが ON）</li>
       <li><strong>設定…</strong> — 環境設定ウィンドウを開きます</li>
+      <li><strong>ユーザーガイド</strong> — このガイド（shotgather.com）をブラウザで開きます</li>
       <li><strong>ShotGather について</strong> — バージョン情報を表示します</li>
       <li><strong>終了</strong> — アプリを終了します</li>
     </ul>
 
-    <h3>初回起動時の推奨設定</h3>
-    <p>初めて使う前に、以下の設定を行っておくとスムーズです。</p>
+    <h3>最初に設定しておくこと</h3>
+    <p>初めて使う前に、次の 2 つを設定しておくとスムーズです。</p>
     <ol>
-      <li><strong>取り込み先フォルダを指定する</strong> — <a href="#settings">設定</a>の「プリセット」タブで既定プリセットの取り込み先フォルダを設定してください。設定しないと、取り込みのたびに毎回フォルダを選ぶ必要があります。</li>
+      <li><strong>取り込み先フォルダを指定する</strong> — <a href="#settings">設定</a>の「プリセット」タブで、既定プリセットの取り込み先フォルダを設定します。設定しないと、取り込みのたびに毎回フォルダを選ぶ必要があります。</li>
       <li><strong>ログイン時に自動起動する</strong> — 設定の「一般」タブで「ログイン時に起動」を ON にすると、Mac を再起動しても自動的にメニューバーに常駐します。</li>
     </ol>
 
-    <div class="tip">
-      <strong>💡 ヒント</strong><br>
-      「メディアカード自動検出」を ON にしておくと、カードを挿した瞬間に通知が届き、ワンクリックで取り込みを開始できます。
+    <div class="callout">
+      <strong>ヒント:</strong> 「メディアカード自動検出」を ON にしておくと、カードを挿した瞬間に通知が届き、ワンクリックで取り込みを開始できます。
     </div>
   </section>
 
@@ -624,45 +452,15 @@
   <section id="basic-flow">
     <h2>3. 取り込みの基本フロー</h2>
 
-    <p>メディアカードを挿してから取り込み完了まで、典型的な手順は以下の通りです。</p>
+    <p>メディアカードを挿してから取り込み完了まで、典型的な手順は次のとおりです。</p>
 
-    <ol class="steps">
-      <li>
-        <div class="step-content">
-          <div class="step-title">メディアカードを挿入する</div>
-          <p class="step-desc">SD カードスロットやカードリーダー、または USB ケーブルでカメラを Mac に接続します。DCIM フォルダを持つデバイスが自動検出の対象です。</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <div class="step-title">通知またはメニューから取り込みを開始する</div>
-          <p class="step-desc">自動検出が ON の場合、「メディアカードを検出しました」という通知が届きます。通知をクリックするか、メニューバーアイコンから「写真を取り込む…」を選んで取り込みダイアログを開きます。</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <div class="step-title">取り込み設定を確認する</div>
-          <p class="step-desc">プリセットを選ぶか、取り込み元・取り込み先・ファイル種類・リネームルールなどを必要に応じて調整します。ファイルリストで取り込まれるファイルを事前確認できます。</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <div class="step-title">「取り込み開始」をクリックする</div>
-          <p class="step-desc">準備ができたら「取り込み開始（⌘Return）」ボタンをクリックします。コピーが開始されます。</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <div class="step-title">進捗を確認する</div>
-          <p class="step-desc">進捗画面でコピー状況をリアルタイムに確認できます。途中でキャンセルしたい場合は「キャンセル」ボタンを押してください。</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <div class="step-title">完了画面で結果を確認する</div>
-          <p class="step-desc">取り込み件数のサマリが表示されます。「取り込み先を開く」ボタンで Finder に直接ジャンプできます。</p>
-        </div>
-      </li>
+    <ol>
+      <li><strong>メディアカードを挿入する。</strong> SD カードスロットやカードリーダー、または USB ケーブルでカメラを Mac に接続します。DCIM フォルダを持つデバイスが自動検出の対象です。</li>
+      <li><strong>通知またはメニューから取り込みを開始する。</strong> 自動検出が ON の場合、「メディアカードを検出しました」という通知が届きます。通知をクリックするか、メニューバーアイコンから「写真を取り込む…」を選びます。</li>
+      <li><strong>取り込み設定を確認する。</strong> プリセットを選ぶか、取り込み元・取り込み先・ファイル種類・リネームルールなどを必要に応じて調整します。ファイルリストで取り込まれるファイルを事前確認できます。</li>
+      <li><strong>「取り込み開始」をクリックする。</strong> 準備ができたら「取り込み開始（⌘Return）」ボタンをクリックすると、コピーが始まります。</li>
+      <li><strong>進捗を確認する。</strong> 進捗画面でコピー状況をリアルタイムに確認できます。途中でやめたい場合は「キャンセル」ボタンを押してください。</li>
+      <li><strong>完了画面で結果を確認する。</strong> 取り込み件数のサマリが表示されます。「取り込み先を開く」ボタンで Finder に直接ジャンプできます。</li>
     </ol>
 
     <figure>
@@ -698,9 +496,8 @@
       <li><strong>取り込み先</strong> — 写真の保存先フォルダを指定します。「参照…」ボタンで Finder から選択できます。</li>
     </ul>
 
-    <div class="note">
-      <strong>⚠️ アクセス権について</strong><br>
-      ShotGather はサンドボックス環境で動作しているため、取り込み先フォルダへのアクセス権は Security-Scoped Bookmark によって管理されます。フォルダを移動・削除した場合や「参照…」をキャンセルした場合、再度フォルダを選択し直す必要があります。
+    <div class="callout">
+      <strong>注記:</strong> ShotGather はサンドボックス環境で動作しているため、取り込み先フォルダへのアクセス権は Security-Scoped Bookmark（macOS がフォルダへのアクセス許可を記憶する仕組み）によって管理されます。フォルダを移動・削除した場合や「参照…」をキャンセルした場合は、再度フォルダを選択し直す必要があります。
     </div>
 
     <h3>バックアップ同時コピー</h3>
@@ -709,11 +506,13 @@
     </p>
 
     <h3>ファイル種類</h3>
-    <p>取り込むファイルの種類をチェックボックスで選択します。</p>
+    <p>取り込むファイルの種類をチェックボックスで選択します。初期状態では RAW と JPEG が選択されています。</p>
     <ul>
-      <li>RAW（CR3、ARW、NEF、ORF、RAF など主要メーカーの RAW 形式）</li>
-      <li>JPEG / HEIC</li>
-      <li>動画（MP4、MOV など）</li>
+      <li><strong>RAW</strong> — CR3、NEF、ARW、RAF、ORF など（対応形式の一覧は <a href="#faq">FAQ</a> を参照）</li>
+      <li><strong>JPEG</strong></li>
+      <li><strong>TIFF</strong></li>
+      <li><strong>HEIF</strong>（HEIC を含む）</li>
+      <li><strong>動画</strong> — MP4、MOV、AVI、MTS、M2TS</li>
     </ul>
 
     <h3>フォルダ自動振り分け</h3>
@@ -760,9 +559,8 @@
     </table>
     <p>例: <code>{date}_{time}_{seq}</code> → <code>20260424_143052_001.CR3</code></p>
 
-    <div class="tip">
-      <strong>💡 直接入力について</strong><br>
-      テキストフィールドに直接入力することで、<code>{date_hyphen}</code>（yyyy-MM-dd 形式）、<code>{time_hyphen}</code>（HH-mm-ss 形式）、<code>{hour}</code>、<code>{minute}</code>、<code>{second}</code> なども利用できます。拡張子はパターンに関係なく常に元の拡張子が自動付加されます。
+    <div class="callout">
+      <strong>ヒント:</strong> テキストフィールドに直接入力することで、<code>{date_hyphen}</code>（yyyy-MM-dd 形式）、<code>{time_hyphen}</code>（HH-mm-ss 形式）、<code>{hour}</code>、<code>{minute}</code>、<code>{second}</code> なども利用できます。拡張子はパターンに関係なく常に元の拡張子が自動付加されます。
     </div>
 
     <p>連番の動作は以下の 3 種類から選べます。</p>
@@ -866,56 +664,53 @@
   </section>
 
   <!-- 7. FAQ -->
-  <section id="faq">
+  <section id="faq" class="faq">
     <h2>7. よくある質問</h2>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. 元のファイルは削除されますか？</div>
-      <div class="faq-answer">
-        <strong>いいえ、削除されません。</strong> ShotGather はコピーのみを行います。一部のデジタルカメラはメディアカード上の専用データベースファイルを管理しており、元ファイルを削除するとカメラ側の動作に支障が出る場合があります。ShotGather はメディアカードに一切書き込まず、読み取り専用で動作します。
-      </div>
-    </div>
+    <h3>元のファイルは削除されますか？</h3>
+    <p>
+      いいえ、削除されません。ShotGather はコピーのみを行います。一部のデジタルカメラはメディアカード上の専用データベースファイルを管理しており、元ファイルを削除するとカメラ側の動作に支障が出る場合があります。ShotGather はメディアカードに一切書き込まず、読み取り専用で動作します。
+    </p>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. 「取り込み先へのアクセス権がありません」というメッセージが出ます</div>
-      <div class="faq-answer">
-        ShotGather は macOS のサンドボックス環境で動作するため、フォルダへのアクセス権限を Security-Scoped Bookmark として保持しています。フォルダを移動・削除した場合、または長期間アクセスしていなかった場合に権限が無効になることがあります。取り込みダイアログの「参照…」ボタンで再度フォルダを選択し直してください。
-      </div>
-    </div>
+    <h3>「取り込み先へのアクセス権がありません」というメッセージが出ます</h3>
+    <p>
+      ShotGather は macOS のサンドボックス環境で動作するため、フォルダへのアクセス権限を Security-Scoped Bookmark として保持しています。フォルダを移動・削除した場合、または長期間アクセスしていなかった場合に権限が無効になることがあります。取り込みダイアログの「参照…」ボタンで再度フォルダを選択し直してください。
+    </p>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. メディアカードを挿してもダイアログが開かない</div>
-      <div class="faq-answer">
-        以下を確認してください。
-        <ol style="margin-top: 8px;">
-          <li><a href="#settings">設定</a>の「一般」タブで「メディアカード自動検出」が ON になっているか</li>
-          <li>メディアカードに <strong>DCIM フォルダ</strong> が存在するか（デジタルカメラで撮影したカードであれば通常存在します）</li>
-          <li>ShotGather が実行中か（メニューバーに SD カードアイコンが表示されているか）</li>
-        </ol>
-        手動で開くには、メニューバーアイコンから「写真を取り込む…」を選択してください。
-      </div>
-    </div>
+    <h3>メディアカードを挿してもダイアログが開かない</h3>
+    <p>以下を確認してください。</p>
+    <ol>
+      <li><a href="#settings">設定</a>の「一般」タブで「メディアカード自動検出」が ON になっているか</li>
+      <li>メディアカードに <strong>DCIM フォルダ</strong> が存在するか（デジタルカメラで撮影したカードであれば通常存在します）</li>
+      <li>ShotGather が実行中か（メニューバーに SD カードアイコンが表示されているか）</li>
+    </ol>
+    <p>手動で開くには、メニューバーアイコンから「写真を取り込む…」を選択してください。</p>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. 検証エラーが表示されました</div>
-      <div class="faq-answer">
-        コピーしたファイルのサイズまたはチェックサムが元ファイルと一致しなかった場合、ShotGather は自動的に再試行します。再試行後も一致しない場合は「検証エラー」として完了画面に表示されます。メディアカードや保存先ドライブに問題がある可能性があります。別のカードリーダーを使う、ドライブの空き容量を確認するなどをお試しください。
-      </div>
-    </div>
+    <h3>検証エラーが表示されました</h3>
+    <p>
+      コピーしたファイルのサイズまたはチェックサムが元ファイルと一致しなかった場合、ShotGather は自動的に再試行します。再試行後も一致しない場合は「検証エラー」として完了画面に表示されます。メディアカードや保存先ドライブに問題がある可能性があります。別のカードリーダーを使う、ドライブの空き容量を確認するなどをお試しください。
+    </p>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. 対応している RAW フォーマットを教えてください</div>
-      <div class="faq-answer">
-        macOS の ImageIO フレームワークが対応しているすべての RAW 形式をサポートしています。Canon（CR3、CR2）、Nikon（NEF、NRW）、Sony（ARW）、FUJIFILM（RAF）、Olympus / OM System（ORF）、Panasonic（RW2）、Leica などの主要メーカーに対応しています。最終的な対応状況は macOS のバージョンに依存します。
-      </div>
-    </div>
+    <h3>対応している RAW フォーマットを教えてください</h3>
+    <p>対応している RAW 形式は次のとおりです。</p>
+    <ul>
+      <li>Canon — CR3、CR2</li>
+      <li>Nikon — NEF、NRW</li>
+      <li>Sony — ARW</li>
+      <li>FUJIFILM — RAF</li>
+      <li>OM SYSTEM / Olympus — ORF</li>
+      <li>Panasonic — RW2</li>
+      <li>PENTAX — PEF</li>
+      <li>Phase One — IIQ</li>
+      <li>Hasselblad — 3FR</li>
+      <li>Samsung — SRW</li>
+      <li>DNG（Leica など DNG 形式を採用するカメラ全般）</li>
+    </ul>
 
-    <div class="faq-item">
-      <div class="faq-question">Q. Automator や「イメージキャプチャ」の代わりに使えますか？</div>
-      <div class="faq-answer">
-        <strong>はい。</strong> これまで Automator のフォルダアクションや、イメージキャプチャ（Image Capture）の「読み込み時に開く項目」で写真の自動取り込みを行っていた方は、ShotGather にそのまま置き換えられます。EXIF 撮影日時による年／月／日フォルダへの自動振り分け、ファイル名リネーム、SHA-256 による検証、バックアップへの同時コピーをすべてアプリの設定画面から構成できるため、ワークフローを自作・保守する必要がありません。コピーのみで元ファイルには一切書き込みません。
-      </div>
-    </div>
+    <h3>Automator や「イメージキャプチャ」の代わりに使えますか？</h3>
+    <p>
+      はい。これまで Automator のフォルダアクションや、イメージキャプチャ（Image Capture）の「読み込み時に開く項目」で写真の自動取り込みを行っていた方は、ShotGather にそのまま置き換えられます。EXIF 撮影日時による年／月／日フォルダへの自動振り分け、ファイル名リネーム、SHA-256 による検証、バックアップへの同時コピーをすべてアプリの設定画面から構成できるため、ワークフローを自作・保守する必要がありません。コピーのみで元ファイルには一切書き込みません。
+    </p>
   </section>
 
   <!-- Footer -->
